@@ -7,6 +7,8 @@ const morgan = require("morgan");
 const userRouter = require("./routes/users");
 const authRouter = require("./routes/auth");
 const postRouter = require("./routes/posts");
+const conversationRouter = require("./routes/conversations");
+const messageRouter = require("./routes/messages");
 const multer = require("multer");
 const path = require("path");
 
@@ -54,6 +56,8 @@ app.post("/api/upload",upload.single("file"),(req,res)=>{
 app.use("/api/users",userRouter);
 app.use("/api/auth",authRouter);
 app.use("/api/posts",postRouter);
+app.use("/api/conversations",conversationRouter);
+app.use("/api/messages",messageRouter);
 
 app.listen(8800,()=>{
     console.log('Back server is running');
